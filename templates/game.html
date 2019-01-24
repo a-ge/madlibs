@@ -5,16 +5,15 @@
 </head>
 <body>
     <h3>Let's play madlibs!</h3>
-    <form action="/madlib">
+    <form action="/madlib" method="POST">
         First, select a color:
         <input type="radio" name="color" value="red">Red
         <input type="radio" name="color" value="blue">Blue
         <br>
-        Next, select an adjective:
-        <select name="adjective">
-            <option value="pretty">Pretty</option>
-            <option value="friendly">Friendly</option>
-        </select>
+        Next, select a few adjectives:
+        <input type="checkbox" name="adjective1" value="pretty">pretty
+        <input type="checkbox" name="adjective2" value="friendly">friendly
+        <input type="checkbox" name="adjective3" value="colorful">colorful
         <br>
         Input a noun:
         <input type="text" name="noun">

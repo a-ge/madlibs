@@ -53,13 +53,30 @@ def show_madlib_form():
     else:
         return render_template("goodbye.html")
 
-@app.route('/madlib')
+@app.route('/madlib', methods=["POST"])
 def show_madlib():
 
-    color = request.args.get("color")
-    noun = request.args.get("noun")
-    person = request.args.get("person")
-    adjective = request.args.get("adjective")
+    color = request.form.get("color")
+    noun = request.form.get("noun")
+    person = request.form.get("person")
+
+    adjective = []
+    adjective1 = request.form.get("adjective1")
+    print(adjective1)
+    if adjective1:
+        adjective.append(adjective1)
+    adjective2 = request.form.get("adjective2")
+    print(adjective2)
+    if adjective2:
+        adjective.append(adjective2)
+    adjective3 = request.form.get("adjective3")
+    print(adjective3)
+    if adjective3:
+        adjective.append(adjective3)
+
+
+    # # adjective = request.args.get("adjective")
+    print(adjective)
 
     return render_template("madlib.html", color=color, noun=noun, person=person.title(), adjective=adjective)
 
